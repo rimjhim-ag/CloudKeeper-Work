@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+
+// Add a number to the end of the array.
+    const arr = [1,2,3,4];
+
+
+arr.push(7);
+
+console.log(arr);
+
+
+// Remove the first number from the array.
+
+  const arr1 = [1,2,3,4];
+
+arr1.shift(0);
+
+console.log(arr1);
+
+
+//Insert a number at a specific index.
+
+
+const arr2 = [1,2,3,4,5,6];
+
+
+arr2.splice(4,0,7);
+
+console.log(arr2);
+
+
+// Replace all occurrences of a number with another number.
+
+let numbers = [2, 5, 3, 2, 8, 5, 9, 3, 2];
+
+
+function replaceAllOccurrence(num, target){
+              
+     for(let i=0;i<numbers.length;i++){
+             if(numbers[i] == target){
+                  numbers[i] = num;
+             }
+     }
+
+     return numbers;
+}
+
+
+
+console.log(replaceAllOccurrence(4,5));
+
+
+// Sort the array in ascending order(without using sort())
+let array = [3,4,5,6,1,2,8,10];
+
+for(let i=0;i<array.length;i++){
+         let j = i+1;
+
+         while(array[j] < array[j-1] && j > 0){
+                 let temp = array[j];
+                 array[j] = array[j-1];
+                 array[j-1] = temp;
+                 j--;
+                
+         }
+}
+
+
+console.log("Array in ascending order : " + array);
+
+// Reverse the array.(without using reverse())
+
+let n = array.length;
+
+for(let i=0;i<n/2;i++){
+      
+       let temp = array[i];
+       array[i] = array[n-i-1];
+       array[n-i-1] = temp;
+
+}
+
+console.log("Reversed Array : " + array);
+
+// Find the index of a specific number.
+
+
+let target = 5;
+
+console.log(array.indexOf(target));
+
+// Alternative solution for find index
+
+
+for(let i=0;i<array.length;i++){
+       if(array[i] == target){
+             console.log(i);
+             break;
+       }
+}
+
+
+
+
+
+</script>
+</html>

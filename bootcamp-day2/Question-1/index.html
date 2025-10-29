@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+
+  <style>
+  body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, button {
+      padding: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div class="form-container">
+      <label for="Name">Name</label>
+      <input id="Name" type="text" placeholder="Type your name" />
+
+      <label for="Age">Age</label>
+      <input id="Age" type="number" placeholder="Type your age" />
+
+      <button type="submit" id="submit-button">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    const NameValue = document.getElementById("Name");
+    const AgeValue = document.getElementById("Age");
+    const button = document.getElementById("submit-button");
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (NameValue.value === "" || AgeValue.value === "") {
+        alert("Please fill all required fields");
+      } else if (AgeValue.value < 18) {
+        alert("You cannot submit this form");
+      } else {
+        alert("Your form is submitted");
+          event.target.form.submit();
+      }
+    });
+  </script>
+</body>
+</html>
