@@ -29,25 +29,14 @@ button.addEventListener("click" , function(){
  for(var i=0;i<cells.length-2;i++){
      
     if(i==0) {
-     var name =  prompt("Enter Student Name");
-     if(name){
-           student[cells[i].innerText] = name;
-     }else{
-          alert("Name cannot be Empty");
-          return;
-     }
+       if(!getStudentName(student)) return;
     }
 
     else{
-      var value = prompt("Enter marks for " + cells[i].innerText);
 
-      if(Validate(value)){
-         student[cells[i].innerText] = Number(value);
+     if(!getSubjectMarks(student,i)) return;
+
       }
-      else{
-         alert("Invalid input, Type Marks within range 0 to 100");
-         return;
-      }}
  }
 
 
@@ -134,4 +123,31 @@ for(var key in student){
     row.appendChild(newCell);
 
 }
+}
+
+
+
+function getStudentName(student){
+    var name =  prompt("Enter Student Name");
+     if(name){
+           student[cells[0].innerText] = name;
+           return true;
+     }else{
+          alert("Name cannot be Empty");
+          return false;
+     }
+}
+
+
+function getSubjectMarks(student, index){
+  var value = prompt("Enter marks for " + cells[index].innerText);
+
+      if(Validate(value)){
+         student[cells[index].innerText] = Number(value);
+         return true;
+      }
+      else{
+         alert("Invalid input, Type Marks within range 0 to 100");
+         return false;
+      }
 }
