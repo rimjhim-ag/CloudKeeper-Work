@@ -52,12 +52,12 @@ ProductList.push(Product4);
 
 
       for(var item of product){
-            console.log(item);
+          
              if(item.price > max){
                   max = item.price;
              }
 
-             console.log(item.price);
+            
       }
 
 
