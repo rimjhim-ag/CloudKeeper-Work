@@ -8,9 +8,9 @@ function Product(name, price,category){
 }
 
 
-Product.prototype.getDiscountedPrice = function(percent = 10, price){
+Product.prototype.getDiscountedPrice = function(price){
             var productPrice = Number(price);
-
+             var percent = 10;
            
 
             var discountedvalue = (productPrice * percent )/100;
@@ -44,8 +44,8 @@ ProductList.push(Product4);
 
 function setCostliestProduct(product){
      
-  console.log(product)
-      const costly = document.createElement("h1");
+ 
+      var costly = document.createElement("h1");
       costly.id = "para";
 
 
@@ -87,12 +87,13 @@ setCostliestProduct.call(null, ProductList);
             var newCard = document.createElement("div");
             newCard.className = "product-item"
 
-            newCard.innerHTML= `<h1> ${element.name} </h1>
-            <ul>
-               
-                <li> Price: ${element.price}</li>
-                <li>  Discounted Price : ${element.getDiscountedPrice(undefined, element.price)} <li>
-                <li>Category: ${element.category}</li></ul>`
+         newCard.innerHTML = 
+  "<h1>" + element.name + "</h1>" +
+  "<ul>" +
+  "<li>Price: " + element.price + "</li>" +
+  "<li>Discounted Price: " + element.getDiscountedPrice(element.price) + "</li>" +
+  "<li>Category: " + element.category + "</li>" +
+  "</ul>";
 
     container.appendChild(newCard);
       });
@@ -106,9 +107,9 @@ setCostliestProduct.call(null, ProductList);
 
 
 
-const cards = document.getElementsByClassName("product-item");
+var cards = document.getElementsByClassName("product-item");
 
-for (let i = 0; i < cards.length; i++) {
+for (var i = 0; i < cards.length; i++) {
   cards[i].addEventListener("mouseover", function() {
      cards[i].style.transform = "scale(1.05)";  // slightly bigger
       cards[i].style.cursor = "pointer";
