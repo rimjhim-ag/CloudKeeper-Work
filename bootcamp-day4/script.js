@@ -42,8 +42,9 @@ ProductList.push(Product4);
 
 
 
-(function setCostliestProduct(product){
+function setCostliestProduct(product){
      
+  console.log(product)
       const costly = document.createElement("h1");
       costly.id = "para";
 
@@ -70,9 +71,10 @@ ProductList.push(Product4);
       
       
        
-})(ProductList);
+};
 
 
+setCostliestProduct.call(null, ProductList);
  
 
 
@@ -85,9 +87,9 @@ ProductList.push(Product4);
             var newCard = document.createElement("div");
             newCard.className = "product-item"
 
-            newCard.innerHTML= `<h1> Product Details </h1>
+            newCard.innerHTML= `<h1> ${element.name} </h1>
             <ul>
-                <li> Name: ${element.name}</li>
+               
                 <li> Price: ${element.price}</li>
                 <li>  Discounted Price : ${element.getDiscountedPrice(undefined, element.price)} <li>
                 <li>Category: ${element.category}</li></ul>`
