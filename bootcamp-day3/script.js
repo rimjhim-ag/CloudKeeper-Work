@@ -3,8 +3,6 @@ function Product(name, price,category){
       this.name = name;
       this.price = price;
       this.category = category;
-       
-
 }
 
 
@@ -39,6 +37,7 @@ ProductList.push(Product1);
 ProductList.push(Product2);
 ProductList.push(Product3);
 ProductList.push(Product4);
+
 
 
 
@@ -109,15 +108,17 @@ setCostliestProduct.call(null, ProductList);
 
 var cards = document.getElementsByClassName("product-item");
 
+
 for (var i = 0; i < cards.length; i++) {
+
   cards[i].addEventListener("mouseover", function() {
-     cards[i].style.transform = "scale(1.05)";  // slightly bigger
-      cards[i].style.cursor = "pointer";
+     this.style.transform = "scale(1.05)";  // slightly bigger
+      this.style.cursor = "pointer";
    
   });
 
   cards[i].addEventListener("mouseout", function() {
-     cards[i].style.transform = "scale(1)"; 
+     this.style.transform = "scale(1)"; 
   });
 }
 
