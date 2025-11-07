@@ -1,7 +1,13 @@
 **1. Configure SSH key in github account.**
 
 
-->  First we have to make an ssh key pair and then by doing 
+->  First we have to make an ssh key pair 
+
+**ssh-keygen -t rsa -b 4096 -C "your_email"**
+
+**ssh-copy-id username@ip_addr**
+
+and then by doing 
 
 **cat ~/.ssh/id_ed25519.pub**
  **cat ~/.ssh/id_rsa.pub**
