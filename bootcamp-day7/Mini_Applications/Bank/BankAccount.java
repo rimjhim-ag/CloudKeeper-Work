@@ -1,3 +1,5 @@
+package Bank;
+
 public class BankAccount {
     private double amount;
     private static int totalAcc;
@@ -30,7 +32,7 @@ public class BankAccount {
     }
     void withdraw(double withdrawAmount){
               try{
-                  if(amount > withdrawAmount){
+                  if(amount < withdrawAmount){
                       throw new OverDraft_Exception("Amount can't be withdrawed");
                   }
                   else{
