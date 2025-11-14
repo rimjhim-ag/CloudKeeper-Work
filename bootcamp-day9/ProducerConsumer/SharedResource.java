@@ -1,19 +1,23 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SharedResource {
 
 
-    private int buffer_size = 0;
-    private int data;
+    Queue<Integer> buffer = new LinkedList<>();
+
+
 
     public synchronized void produce(int val) throws InterruptedException {
 
-         while(buffer_size == 5){
+         while(buffer.size() == 5){
              wait();
          }
 
          System.out.println("Producer generates" + val);
-         data = val;
 
-         buffer_size++;
+
+         buffer.add(val);
 
 
          notify();
@@ -22,14 +26,14 @@ public class SharedResource {
     }
     public synchronized void consume() throws InterruptedException {
 
-        while(buffer_size == 0){
+        while(buffer.size() == 0){
             wait();
         }
 
-        int consume = data;
 
-        System.out.println("Consumer prints" + consume);
-        buffer_size--;
+
+        System.out.println("Consumer prints" + buffer.remove());
+
 
         notify();
 
